@@ -28,7 +28,6 @@ public class ActProxyMgr {
     public static final int ACTION_RESERVED = 0;
     public static final int ACTION_EXFRIEND_LIST = 1;
     public static final int ACTION_ADV_SETTINGS = 2;
-    public static final int ACTION_ABOUT = 3;
     public static final int ACTION_SHELL = 4;
     public static final int ACTION_MUTE_AT_ALL = 5;
     public static final int ACTION_MUTE_RED_PACKET = 6;
@@ -53,8 +52,6 @@ public class ActProxyMgr {
                 return TroopSelectActivity.class;
             case ACTION_CHAT_TAIL_FRIENDS_ACTIVITY:
                 return FriendSelectActivity.class;
-            case ACTION_ABOUT:
-                return AboutActivity.class;
             case ACTION_DONATE_ACTIVITY:
                 return DonateActivity.class;
             case ACTION_TROUBLESHOOT_ACTIVITY:
