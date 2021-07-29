@@ -15,7 +15,6 @@ import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.DexDeobfStep;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.DexKit;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 //自定义聊天页面时间格式
@@ -48,7 +47,6 @@ public class CustomMsgTimeFormat extends BaseDelayableHook {
                         @SuppressLint("SimpleDateFormat")
                         @Override
                         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                            if (LicenseStatus.sDisableCommonHooks) return;
                             if (!isEnabled()) return;
                             String fmt = RikkaCustomMsgTimeFormatDialog.getCurrentMsgTimeFormat();
                             if (fmt != null) {

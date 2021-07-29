@@ -86,7 +86,6 @@ public class JumpController extends BaseDelayableHook {
                 @Override
                 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                     try {
-                        if (LicenseStatus.sDisableCommonHooks) return;
                         if (!isEnabled()) return;
                         final Object that = param.thisObject;
                         final Context ctx = (Context) param.args[0];

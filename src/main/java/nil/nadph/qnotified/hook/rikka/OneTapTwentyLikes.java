@@ -14,7 +14,6 @@ import nil.nadph.qnotified.config.ConfigManager;
 import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.Initiator;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Utils.TOAST_TYPE_ERROR;
@@ -50,7 +49,6 @@ public class OneTapTwentyLikes extends BaseDelayableHook {
                     XposedBridge.hookMethod(m, new XC_MethodHook() {
                         @Override
                         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                            if (LicenseStatus.sDisableCommonHooks) return;
                             if (!isEnabled()) return;
                             View view = (View) param.args[0];
                             Object tag = view.getTag();

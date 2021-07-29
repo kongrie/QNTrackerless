@@ -87,7 +87,6 @@ public class MultiForwardAvatarHook extends BaseDelayableHook {
             findAndHookMethod(load("com/tencent/mobileqq/activity/aio/BaseBubbleBuilder"), "onClick", View.class, new XC_MethodHook(49) {
                 @Override
                 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.sDisableCommonHooks) return;
                     if (!isEnabled()) return;
                     Context ctx = iget_object_or_null(param.thisObject, "a", Context.class);
                     if (ctx == null) ctx = getFirstNSFByType(param.thisObject, Context.class);

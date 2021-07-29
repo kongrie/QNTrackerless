@@ -5,7 +5,6 @@ import de.robv.android.xposed.XposedHelpers
 import me.singleneuron.base.adapter.BaseDelayableConditionalHookAdapter
 import me.singleneuron.data.PageFaultHighPerformanceFunctionCache
 import me.singleneuron.util.QQVersion
-import nil.nadph.qnotified.util.LicenseStatus
 import nil.nadph.qnotified.util.Utils
 
 object ForceSystemCamera : BaseDelayableConditionalHookAdapter("forceSystemCamera") {
@@ -15,7 +14,6 @@ object ForceSystemCamera : BaseDelayableConditionalHookAdapter("forceSystemCamer
         //特征字符串："GT-I9500"
         XposedHelpers.findAndHookMethod(captureUtilClass,"a",object : XC_MethodHook(){
             override fun afterHookedMethod(param: MethodHookParam?) {
-                if (LicenseStatus.sDisableCommonHooks) return
                 if (!isEnabled) return
                 Utils.logd("ForceSystemCamera babq.a():"+(param!!.result as Boolean))
                 param.result = false

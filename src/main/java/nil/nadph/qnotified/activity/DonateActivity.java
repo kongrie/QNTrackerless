@@ -121,10 +121,8 @@ public class DonateActivity extends IphoneTitleBarActivityCompat {
         ll.addView(newListItemButton(this, "Telegram", "点击私信", "Auride", clickToUrl("https://t.me/Auride")));
         ll.addView(newListItemButton(this, "Mail", null, "xenonhydride@gmail.com", null));
         ll.addView(subtitle(this, "扶贫方式"));
-        if (isNiceUser()) {
-            ll.addView(newListItemButton(this, "支付宝", null, null, clickToAlipay()));
-            ll.addView(newListItemButton(this, "微信支付", null, null, clickToFxxkWxpay()));
-        }
+        ll.addView(newListItemButton(this, "支付宝", null, null, clickToAlipay()));
+        ll.addView(newListItemButton(this, "微信支付", null, null, clickToFxxkWxpay()));
         ll.addView(newListItemButton(this, "Bitcoin", null, null, clickToBtc()));
 
         ll.addView(subtitle(this, "FAQ1:"));

@@ -32,12 +32,10 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import nil.nadph.qnotified.hook.BaseDelayableHook;
-import nil.nadph.qnotified.hook.SettingEntryHook;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.ui.ProportionDrawable;
 import nil.nadph.qnotified.ui.ResUtils;
 import nil.nadph.qnotified.ui.SimpleBgDrawable;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -142,22 +140,18 @@ public class InjectDelayableHooks {
                 }
             }
         }
-        if (LicenseStatus.hasUserAcceptEula()) {
-            for (BaseDelayableHook h : hooks) {
-                try {
-                    if (h.isEnabled() && h.isTargetProc()) {
-                        if (h.checkPreconditions()) {
-                            h.init();
-                        } else {
-                            loge("InjectDelayableHooks/E not init " + h + " ,since checkPreconditions == false");
-                        }
+        for (BaseDelayableHook h : hooks) {
+            try {
+                if (h.isEnabled() && h.isTargetProc()) {
+                    if (h.checkPreconditions()) {
+                        h.init();
+                    } else {
+                        loge("InjectDelayableHooks/E not init " + h + " ,since checkPreconditions == false");
                     }
-                } catch (Throwable e) {
-                    log(e);
                 }
+            } catch (Throwable e) {
+                log(e);
             }
-        } else {
-            SettingEntryHook.get().init();
         }
         if (ctx != null && main[0] != null) {
             System.gc();

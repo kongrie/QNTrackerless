@@ -18,19 +18,15 @@
  */
 package nil.nadph.qnotified.hook;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedHelpers;
-import nil.nadph.qnotified.ExfriendManager;
 import nil.nadph.qnotified.MainHook;
 import nil.nadph.qnotified.SyncUtils;
-import nil.nadph.qnotified.activity.EulaActivity;
 import nil.nadph.qnotified.step.DexDeobfStep;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.*;
@@ -60,7 +56,6 @@ public class SettingEntryHook extends BaseDelayableHook {
             XposedHelpers.findAndHookMethod(load("com.tencent.mobileqq.activity.QQSettingSettingActivity"), "doOnCreate", Bundle.class, new XC_MethodHook(52) {
                 @Override
                 protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.isLoadingDisabled() || LicenseStatus.isSilentGone()) return;
                     try {
                         Class<?> itemClass = null;
                         View itemRef = null;
@@ -77,53 +72,11 @@ public class SettingEntryHook extends BaseDelayableHook {
                         item.setId(R_ID_SETTING_ENTRY);
                         invoke_virtual(item, "setLeftText", "QNotified", CharSequence.class);
                         invoke_virtual(item, "setBgType", 2, int.class);
-                        if (LicenseStatus.isBlacklisted()) {
-                            invoke_virtual(item, "setRightText", "[禁用]", CharSequence.class);
-                            item.setOnLongClickListener(new View.OnLongClickListener() {
-                                @Override
-                                public boolean onLongClick(final View v) {
-                                    if (!LicenseStatus.isBlacklisted()) return false;
-                                    Toast.makeText((Context) param.thisObject, "正在重新检验授权", Toast.LENGTH_SHORT).show();
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                ExfriendManager.getCurrent().doUpdateUserStatusFlags();
-                                            } catch (final Exception e) {
-                                                v.post(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        Toast.makeText((Context) param.thisObject, e.toString(), Toast.LENGTH_LONG).show();
-                                                    }
-                                                });
-                                            }
-                                        }
-                                    }).start();
-                                    return true;
-                                }
-                            });
-                        } else {
-                            if (LicenseStatus.hasUserAcceptEula()) {
-                                invoke_virtual(item, "setRightText", Utils.QN_VERSION_NAME, CharSequence.class);
-                            } else {
-                                invoke_virtual(item, "setRightText", "[未激活]", CharSequence.class);
-                            }
-                        }
+                        invoke_virtual(item, "setRightText", Utils.QN_VERSION_NAME, CharSequence.class);
                         item.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                if (LicenseStatus.isBlacklisted()) {
-                                    Utils.showToast((Context) param.thisObject, TOAST_TYPE_ERROR, "无法使用本模块因为您已被拉黑", Toast.LENGTH_LONG);
-                                } else {
-                                    if (LicenseStatus.hasUserAcceptEula()) {
-                                        MainHook.startProxyActivity((Context) param.thisObject, ActProxyMgr.ACTION_ADV_SETTINGS);
-                                    } else {
-                                        MainHook.startProxyActivity((Context) param.thisObject, EulaActivity.class);
-                                        if (param.thisObject instanceof Activity) {
-                                            ((Activity) param.thisObject).finish();
-                                        }
-                                    }
-                                }
+                                MainHook.startProxyActivity((Context) param.thisObject, ActProxyMgr.ACTION_ADV_SETTINGS);
                             }
                         });
                         ViewGroup list = (ViewGroup) itemRef.getParent();

@@ -1338,7 +1338,6 @@ public class Utils {
     public static void loge(String str) {
         Log.e("QNdump", str);
         try {
-            BugCollector.onThrowable(new Throwable(str));
             XposedBridge.log(str);
         } catch (NoClassDefFoundError e) {
             Log.e("Xposed", str);
@@ -1421,10 +1420,6 @@ public class Utils {
         } catch (NoClassDefFoundError e) {
             Log.e("Xposed", msg);
             Log.e("EdXposed-Bridge", msg);
-        }
-        try {
-            BugCollector.onThrowable(th);
-        } catch (Throwable ignored) {
         }
         if (ENABLE_DUMP_LOG) {
             String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/qn_log.txt";
@@ -1680,34 +1675,6 @@ public class Utils {
         if (c1.get(Calendar.DATE) != c2.get(Calendar.DATE)) return 3;
         if (t1.equals(t2)) return 0;
         return 1;
-    }
-
-    public static boolean isNiceUser() {
-        if ((LicenseStatus.getCurrentUserWhiteFlags() & UserFlagConst.WF_NICE_USER) != 0)
-            return true;
-        if ((LicenseStatus.getCurrentUserBlackFlags() & UserFlagConst.BF_HIDE_INFO) != 0)
-            return false;
-        try {
-            ConfigManager cfg = ConfigManager.getDefaultConfig();
-            if (cfg.getBooleanOrDefault(ConfigItems.cfg_nice_user, false)) {
-                return true;
-            }
-            if (doEvalNiceUser()) {
-                try {
-                    if (SyncUtils.isMainProcess()) {
-                        cfg.getAllConfig().put(ConfigItems.cfg_nice_user, true);
-                        cfg.save();
-                    }
-                } catch (Throwable e1) {
-                    log(e1);
-                }
-                return true;
-            }
-            return false;
-        } catch (Throwable e2) {
-            log(e2);
-            return true;
-        }
     }
 
     private static boolean doEvalNiceUser() {

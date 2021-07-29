@@ -9,7 +9,6 @@ import me.kyuubiran.utils.setZeroHeightWeight
 import nil.nadph.qnotified.SyncUtils
 import nil.nadph.qnotified.step.Step
 import nil.nadph.qnotified.util.Initiator
-import nil.nadph.qnotified.util.LicenseStatus
 import nil.nadph.qnotified.util.Utils
 import java.lang.reflect.Method
 import java.lang.reflect.Modifier
@@ -54,7 +53,6 @@ object SimplifyQQSettingMe : BaseMultiConfigDelayableHook() {
             val clz = Initiator.load("com.tencent.mobileqq.activity.QQSettingMe")
             XposedBridge.hookAllConstructors(clz, object : XC_MethodHook() {
                 override fun afterHookedMethod(param: MethodHookParam?) {
-                    if (LicenseStatus.sDisableCommonHooks) return
                     if (!isEnabled) return
                     //中间部分(QQ会员 我的钱包等)
                     val midcontentListLayout: LinearLayout = Utils.iget_object_or_null(param?.thisObject, "k", View::class.java) as LinearLayout

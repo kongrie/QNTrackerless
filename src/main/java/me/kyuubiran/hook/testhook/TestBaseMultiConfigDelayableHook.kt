@@ -6,7 +6,6 @@ import me.kyuubiran.hook.BaseMultiConfigDelayableHook
 import nil.nadph.qnotified.SyncUtils
 import nil.nadph.qnotified.step.Step
 import nil.nadph.qnotified.util.Initiator
-import nil.nadph.qnotified.util.LicenseStatus
 import nil.nadph.qnotified.util.Utils
 import java.lang.reflect.Method
 
@@ -29,7 +28,6 @@ object TestBaseMultiConfigDelayableHook : BaseMultiConfigDelayableHook() {
                 if (m.name == "a") {
                     XposedBridge.hookMethod(m, object : XC_MethodHook() {
                         override fun beforeHookedMethod(param: MethodHookParam?) {
-                            if (LicenseStatus.sDisableCommonHooks) return
                             if (!isEnabled) return
                             Utils.logd("这是一个BaseMultiConfigDelayableHook模板")
                             if (getBooleanConfig(cfg1)) Utils.logd("cfg1已启用") else Utils.logd("cfg1已禁用")

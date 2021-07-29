@@ -43,7 +43,6 @@ import nil.nadph.qnotified.config.ConfigManager;
 import nil.nadph.qnotified.dialog.RikkaCustomMsgTimeFormatDialog;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.DexKit;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Initiator._SessionInfo;
@@ -87,8 +86,6 @@ public class ChatTailHook extends BaseDelayableHook {
                 @Override
                 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                     if (isEnabled()) {
-                        if (LicenseStatus.sDisableCommonHooks) return;
-                        if (LicenseStatus.hasBlackFlags()) return;
                         String msg = (String) param.args[3];
                         // StringBuilder debug = new StringBuilder();
                         //  debug.append("当前消息: ").append(msg).append("\n");

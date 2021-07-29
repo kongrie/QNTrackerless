@@ -32,7 +32,6 @@ import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.DexDeobfStep;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.DexKit;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.NonNull;
 import nil.nadph.qnotified.util.Utils;
 
@@ -65,7 +64,6 @@ public class ShowMsgCount extends BaseDelayableHook {
                     XposedBridge.hookMethod(m, new XC_MethodHook() {
                         @Override
                         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                            if (LicenseStatus.sDisableCommonHooks) return;
                             if (!isEnabled()) return;
                             param.args[4] = Integer.MAX_VALUE;
                         }

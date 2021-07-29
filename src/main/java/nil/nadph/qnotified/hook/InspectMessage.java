@@ -38,7 +38,6 @@ import nil.nadph.qnotified.step.DexDeobfStep;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.ui.CustomDialog;
 import nil.nadph.qnotified.util.DexKit;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
@@ -66,7 +65,6 @@ public class InspectMessage extends BaseDelayableHook implements View.OnLongClic
             findAndHookMethod(load("com/tencent/mobileqq/activity/aio/BaseBubbleBuilder"), "onClick", View.class, new XC_MethodHook(49) {
                 @Override
                 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.sDisableCommonHooks) return;
                     if (!bInspectMode) return;
                     if (!isEnabled()) return;
                     Context ctx = iget_object_or_null(param.thisObject, "a", Context.class);
@@ -124,7 +122,6 @@ public class InspectMessage extends BaseDelayableHook implements View.OnLongClic
             XposedBridge.hookMethod(m, new XC_MethodHook(49) {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.sDisableCommonHooks) return;
                     if (!isEnabled()) return;
                     ViewGroup panel = (ViewGroup) param.thisObject;
                     View v = panel.getChildAt(panel.getChildCount() - 1);
@@ -146,7 +143,6 @@ public class InspectMessage extends BaseDelayableHook implements View.OnLongClic
             findAndHookMethod(load("com.tencent.mobileqq.activity.aio.panel.PanelIconLinearLayout"), "setAllEnable", boolean.class, new XC_MethodHook(47) {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.sDisableCommonHooks) return;
                     if (!isEnabled()) return;
                     boolean z = (boolean) param.args[0];
                     ViewGroup panel = (ViewGroup) param.thisObject;

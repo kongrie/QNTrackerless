@@ -14,7 +14,6 @@ import nil.nadph.qnotified.config.ConfigManager;
 import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.Initiator;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Utils.TOAST_TYPE_ERROR;
@@ -51,7 +50,6 @@ public class RemoveQbossAD extends BaseDelayableHook {
                     XposedBridge.hookMethod(m, new XC_MethodHook() {
                         @Override
                         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                            if (LicenseStatus.sDisableCommonHooks) return;
                             if (!isEnabled()) return;
 //                            Toast.makeText(getApplication(), "屏蔽消息列表横幅广告成功!", android.widget.Toast.LENGTH_SHORT).show();
                             param.setResult(null);

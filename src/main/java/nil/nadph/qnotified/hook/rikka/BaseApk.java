@@ -17,7 +17,6 @@ import nil.nadph.qnotified.dialog.RikkaBaseApkFormatDialog;
 import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.Initiator;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Utils.log;
@@ -53,7 +52,6 @@ public class BaseApk extends BaseDelayableHook {
                         XposedBridge.hookMethod(m, new XC_MethodHook() {
                             @Override
                             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                                if (LicenseStatus.sDisableCommonHooks) return;
                                 if (!isEnabled()) return;
                                 Object item = param.args[1];
                                 Field localFile = XposedHelpers.findField(_ItemManagerClz, "LocalFile");

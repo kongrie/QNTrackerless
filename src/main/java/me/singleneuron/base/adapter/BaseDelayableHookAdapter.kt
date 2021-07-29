@@ -9,7 +9,6 @@ import nil.nadph.qnotified.SyncUtils
 import nil.nadph.qnotified.config.ConfigManager
 import nil.nadph.qnotified.hook.BaseDelayableHook
 import nil.nadph.qnotified.step.Step
-import nil.nadph.qnotified.util.LicenseStatus
 import nil.nadph.qnotified.util.Utils
 
 abstract class BaseDelayableHookAdapter @JvmOverloads protected constructor(protected val cfgName: String, val proc: Int = SyncUtils.PROC_MAIN, val cond: Array<Step> = arrayOf(), val defVal: Boolean = false) : BaseDelayableHook() {
@@ -68,7 +67,6 @@ abstract class BaseDelayableHookAdapter @JvmOverloads protected constructor(prot
     }
 
     open fun checkEnabled(): Boolean {
-        if (LicenseStatus.sDisableCommonHooks) return false
         return isEnabled
     }
 

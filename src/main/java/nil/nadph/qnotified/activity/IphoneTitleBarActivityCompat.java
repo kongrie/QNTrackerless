@@ -33,8 +33,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 import nil.nadph.qnotified.ui.ResUtils;
-import nil.nadph.qnotified.util.CliOper;
-import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Initiator.load;
 import static nil.nadph.qnotified.util.Utils.*;
@@ -58,7 +56,6 @@ public class IphoneTitleBarActivityCompat extends IphoneTitleBarActivity {
         } catch (Throwable e) {
             log(e);
         }
-        CliOper.enterModuleActivity(Utils.getShort$Name(this));
         return ret;
     }
 

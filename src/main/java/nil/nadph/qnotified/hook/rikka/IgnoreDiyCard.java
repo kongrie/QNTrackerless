@@ -32,7 +32,6 @@ import nil.nadph.qnotified.SyncUtils;
 import nil.nadph.qnotified.config.ConfigManager;
 import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.Step;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.NonNull;
 import nil.nadph.qnotified.util.Utils;
 
@@ -75,7 +74,6 @@ public class IgnoreDiyCard extends BaseDelayableHook {
                 XposedBridge.hookMethod(m, new XC_MethodHook(49) {
                     @Override
                     protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                        if (LicenseStatus.sDisableCommonHooks) return;
                         if (!isEnabled()) return;
                         Class<?> _ProfileCardInfo = ((Method) param.method).getParameterTypes()[0];
                         Object info = Utils.iget_object_or_null(param.thisObject, "a", _ProfileCardInfo);

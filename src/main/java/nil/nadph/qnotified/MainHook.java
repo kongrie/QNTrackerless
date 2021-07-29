@@ -306,7 +306,6 @@ public class MainHook {
                     //logi("NewRuntime/I after doStep");
                     if (SyncUtils.isMainProcess()) {
                         // fix error in :video, and QZone启动失败
-                        LicenseStatus.sDisableCommonHooks = LicenseStatus.isLoadingDisabled() || LicenseStatus.isBlacklisted() || LicenseStatus.isSilentGone();
                     }
                 }
             });
@@ -349,13 +348,11 @@ public class MainHook {
                 }
             });
         } else {
-            if (LicenseStatus.hasUserAcceptEula()) {
-                Class director = _StartupDirector();
-                Object dir = iget_object_or_null(step, "mDirector", director);
-                if (dir == null) dir = iget_object_or_null(step, "a", director);
-                if (dir == null) dir = getFirstNSFByType(step, director);
-                InjectDelayableHooks.step(dir);
-            }
+            Class director = _StartupDirector();
+            Object dir = iget_object_or_null(step, "mDirector", director);
+            if (dir == null) dir = iget_object_or_null(step, "a", director);
+            if (dir == null) dir = getFirstNSFByType(step, director);
+            InjectDelayableHooks.step(dir);
         }
     }
 
@@ -488,8 +485,7 @@ public class MainHook {
         initForStubActivity(ctx);
         initForJumpActivityEntry(ctx);
         asyncStartFindClass();
-        if (LicenseStatus.sDisableCommonHooks) return;
-        if (LicenseStatus.hasUserAcceptEula()) hideMiniAppEntry();
+        hideMiniAppEntry();
     }
 
     private static String sModulePath = null;
@@ -662,30 +658,9 @@ public class MainHook {
                     if (intent == null || (cmd = intent.getStringExtra(JUMP_ACTION_CMD)) == null)
                         return;
                     if (JUMP_ACTION_SETTING_ACTIVITY.equals(cmd)) {
-                        if (LicenseStatus.sDisableCommonHooks) {
-                            long uin = Utils.getLongAccountUin();
-                            if (uin > 10000) {
-                                new Thread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            ExfriendManager.getCurrent().doUpdateUserStatusFlags();
-                                        } catch (final Exception e) {
-                                            activity.runOnUiThread(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    Toast.makeText(activity, e.toString(), Toast.LENGTH_LONG).show();
-                                                }
-                                            });
-                                        }
-                                    }
-                                }).start();
-                            }
-                        } else {
-                            Intent realIntent = new Intent(intent);
-                            realIntent.setComponent(new ComponentName(activity, SettingsActivity.class));
-                            activity.startActivity(realIntent);
-                        }
+                        Intent realIntent = new Intent(intent);
+                        realIntent.setComponent(new ComponentName(activity, SettingsActivity.class));
+                        activity.startActivity(realIntent);
                     } else if (JUMP_ACTION_START_ACTIVITY.equals(cmd)) {
                         String target = intent.getStringExtra(JUMP_ACTION_TARGET);
                         if (!TextUtils.isEmpty(target)) {

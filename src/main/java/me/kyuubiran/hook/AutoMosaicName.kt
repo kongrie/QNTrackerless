@@ -9,7 +9,6 @@ import nil.nadph.qnotified.config.ConfigManager
 import nil.nadph.qnotified.hook.BaseDelayableHook
 import nil.nadph.qnotified.step.Step
 import nil.nadph.qnotified.util.Initiator
-import nil.nadph.qnotified.util.LicenseStatus
 import nil.nadph.qnotified.util.Utils
 import java.lang.reflect.Method
 
@@ -30,7 +29,6 @@ object AutoMosaicName : BaseDelayableHook() {
                 if (argt.size == 1 && argt[0] == Boolean::class.java && m.name == "t") {
                     XposedBridge.hookMethod(m, object : XC_MethodHook() {
                         override fun beforeHookedMethod(param: MethodHookParam) {
-                            if (LicenseStatus.sDisableCommonHooks) return
                             param.args[0] = isEnabled
                         }
                     })

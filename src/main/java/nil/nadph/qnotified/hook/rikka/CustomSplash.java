@@ -13,7 +13,6 @@ import nil.nadph.qnotified.SyncUtils;
 import nil.nadph.qnotified.dialog.RikkaCustomSplash;
 import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.Step;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 //自定义启动图
@@ -54,7 +53,6 @@ public class CustomSplash extends BaseDelayableHook {
             XposedBridge.hookMethod(open, new XC_MethodHook(53) {
                 @Override
                 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.sDisableCommonHooks) return;
                     if (!isEnabled()) return;
                     String fileName = (String) param.args[0];
                     if ("splash.jpg".equals(fileName) || "splash_big.jpg".equals(fileName)) {

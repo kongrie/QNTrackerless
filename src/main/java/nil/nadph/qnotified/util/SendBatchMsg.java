@@ -91,7 +91,6 @@ public class SendBatchMsg {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (LicenseStatus.sDisableCommonHooks) return;
                 try {
                     final Context exactCtx = v.getContext();
                     LinearLayout linearLayout = getEditView(exactCtx);
@@ -111,7 +110,7 @@ public class SendBatchMsg {
                             if (msg.isEmpty() || msg.equals("")) {
                                 showToast(exactCtx, TOAST_TYPE_ERROR, "请输入文本消息", Toast.LENGTH_SHORT);
                             } else {
-                                if (msg.length() > 6 && !LicenseStatus.isAsserted()) {
+                                if (msg.length() > 6) {
                                     showToast(exactCtx, TOAST_TYPE_ERROR, "超出字数限制：输入被限制在五个字以内", Toast.LENGTH_SHORT);
                                 } else {
                                     try {
@@ -154,7 +153,6 @@ public class SendBatchMsg {
                                 i++;
                             }
                             boolean isSuccess = ntSendBatchMessages(getQQAppInterface(), context, msg, type, uins);
-                            CliOper.batchSendMsg(Utils.getLongAccountUin(), msg, arrayList.size());
                             try {
                                 showToast(context, TOAST_TYPE_INFO, "发送" + (isSuccess ? "成功" : "失败"), Toast.LENGTH_SHORT);
                             } catch (Throwable throwable) {

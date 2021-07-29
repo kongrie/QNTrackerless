@@ -42,7 +42,6 @@ import nil.nadph.qnotified.config.ConfigManager;
 import nil.nadph.qnotified.dialog.RepeaterIconSettingDialog;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.ui.LinearLayoutDelegate;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Initiator.*;
@@ -86,7 +85,6 @@ public class RepeaterHook extends BaseDelayableHook {
             XposedBridge.hookMethod(getView, new XC_MethodHook(50) {
                 @Override
                 public void afterHookedMethod(final MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.sDisableCommonHooks) return;
                     if (!isEnabled()) return;
                     ViewGroup relativeLayout = (ViewGroup) param.getResult();
                     Context ctx = relativeLayout.getContext();
@@ -250,7 +248,6 @@ public class RepeaterHook extends BaseDelayableHook {
                         new XC_MethodHook(51) {
                             @Override
                             public void afterHookedMethod(final MethodHookParam param) throws Throwable {
-                                if (LicenseStatus.sDisableCommonHooks) return;
                                 if (!isEnabled()) return;
                                 View view;
                                 View resultView = (View) param.getResult();
@@ -316,7 +313,6 @@ public class RepeaterHook extends BaseDelayableHook {
                 XposedHelpers.findAndHookMethod(_TextItemBuilder(), "a", ChatMessage, itemHolder, View.class, BaseChatItemLayout, listener2, new XC_MethodHook() {
                     @Override
                     public void beforeHookedMethod(MethodHookParam methodHookParam) throws Throwable {
-                        if (LicenseStatus.sDisableCommonHooks) return;
                         if (!isEnabled()) return;
                         View v = (View) methodHookParam.args[2];
                         if (v != null && (v.getContext().getClass().getName().contains("ChatHistoryActivity")
@@ -330,7 +326,6 @@ public class RepeaterHook extends BaseDelayableHook {
 
                     @Override
                     protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                        if (LicenseStatus.sDisableCommonHooks) return;
                         if (!isEnabled()) return;
                         ImageView imageView = iget_object_or_null(param.args[1], "b", ImageView.class);
                         ImageView imageView2 = iget_object_or_null(param.args[1], "c", ImageView.class);
@@ -363,7 +358,6 @@ public class RepeaterHook extends BaseDelayableHook {
                     new XC_MethodHook(51) {
                         @Override
                         public void afterHookedMethod(final MethodHookParam param) throws Throwable {
-                            if (LicenseStatus.sDisableCommonHooks) return;
                             if (!isEnabled()) return;
                             ViewGroup convertView = (ViewGroup) param.getResult();
                             Context ctx = convertView.getContext();

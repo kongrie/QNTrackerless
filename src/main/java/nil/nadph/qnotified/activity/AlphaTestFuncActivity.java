@@ -25,14 +25,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.tencent.mobileqq.widget.BounceScrollView;
 
 import me.kyuubiran.dialog.RevokeMsgDialog;
 import me.kyuubiran.hook.RemovePokeGrayTips;
 import nil.nadph.qnotified.ui.ResUtils;
-import nil.nadph.qnotified.util.LicenseStatus;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -65,27 +63,11 @@ public class AlphaTestFuncActivity extends IphoneTitleBarActivityCompat {
         __lp_r.setMargins(mar, 0, mar, 0);
         __lp_r.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         __lp_r.addRule(RelativeLayout.CENTER_VERTICAL);
-        if (!LicenseStatus.isAsserted()) {
-            TextView tv = new TextView(this);
-            tv.setText("你是怎么进来的???????????????????");
-            tv.setTextColor(ResUtils.skin_red);
-            tv.setTextSize(30);
-            ll.addView(tv, MATCH_PARENT, WRAP_CONTENT);
-            new Thread(() -> {
-                try {
-                    Thread.sleep(3000);
-                    AlphaTestFuncActivity.this.finish();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-        } else {
-            View v = subtitle(this, "狐狸狸测试功能");
-            v.setOnClickListener(v1 -> RevokeMsgDialog.INSTANCE.onShow(AlphaTestFuncActivity.this));
-            ll.addView(v);
-            ll.addView(newListItemHookSwitchInit(this, "屏蔽戳一戳灰字提示[暂不支持8.4.8+]", "仅屏蔽开启之后的提示", RemovePokeGrayTips.INSTANCE));
+        View v = subtitle(this, "狐狸狸测试功能");
+        v.setOnClickListener(v1 -> RevokeMsgDialog.INSTANCE.onShow(AlphaTestFuncActivity.this));
+        ll.addView(v);
+        ll.addView(newListItemHookSwitchInit(this, "屏蔽戳一戳灰字提示[暂不支持8.4.8+]", "仅屏蔽开启之后的提示", RemovePokeGrayTips.INSTANCE));
 
-        }
         __ll.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT));
         this.setContentView(bounceScrollView);
         LinearLayout.LayoutParams _lp_fat = new LinearLayout.LayoutParams(MATCH_PARENT, 0);

@@ -16,7 +16,6 @@ import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.DexDeobfStep;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.DexKit;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Utils.TOAST_TYPE_ERROR;
@@ -54,7 +53,6 @@ public class DisableScreenshotHelper extends BaseDelayableHook {
                         XposedBridge.hookMethod(m, new XC_MethodHook() {
                             @Override
                             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                                if (LicenseStatus.sDisableCommonHooks) return;
                                 if (!isEnabled()) return;
                                 param.setResult(null);
                             }

@@ -116,13 +116,9 @@ public class SettingsActivity extends IphoneTitleBarActivityCompat implements Vi
         } catch (Throwable e) {
             log(e);
         }
-        if (LicenseStatus.isAsserted()) {
-            ll.addView(newListItemButton(this, "狐狸狸测试功能", "不管你是什么人都别动这里的东西", null, clickToProxyActAction(AlphaTestFuncActivity.class)));
-        }
-        if (!LicenseStatus.hasBlackFlags()) {
-            ll.addView(newListItemButton(this, "Beta测试性功能", "仅用于测试稳定性", null, clickToProxyActAction(BetaTestFuncActivity.class)));
-            ll.addView(newListItemButton(this, "Omega测试性功能", "这是个不存在的功能", null, v -> KotlinUtilsKt.showEulaDialog(SettingsActivity.this)));
-        }
+        ll.addView(newListItemButton(this, "狐狸狸测试功能", "不管你是什么人都别动这里的东西", null, clickToProxyActAction(AlphaTestFuncActivity.class)));
+        ll.addView(newListItemButton(this, "Beta测试性功能", "仅用于测试稳定性", null, clickToProxyActAction(BetaTestFuncActivity.class)));
+        ll.addView(newListItemButton(this, "Omega测试性功能", "这是个不存在的功能", null, clickToProxyActAction(OmegaTestFuncActivity.class)));
         ll.addView(subtitle(this, "基本功能"));
         if (!Utils.isTim(this) && getHostVersionCode32() >= QQ_8_2_6) {
             ll.addView(_t = newListItemButton(this, "自定义电量", "[QQ>=8.2.6]在线模式为我的电量时生效", "N/A", clickToProxyActAction(ACTION_FAKE_BAT_CONFIG_ACTIVITY)));
@@ -280,8 +276,6 @@ public class SettingsActivity extends IphoneTitleBarActivityCompat implements Vi
         ll.addView(_t = newListItemButton(this, "检查更新", null, "点击检查", uc));
         uc.setVersionTip(_t);
         ll.addView(newListItemButton(this, "关于模块", null, null, clickToProxyActAction(ACTION_ABOUT)));
-        ll.addView(newListItemButton(this, "用户协议", "《QNotified 最终用户许可协议》与《隐私条款》", null, clickToProxyActAction(EulaActivity.class)));
-//        ll.addView(newListItemButton(this, "高级验证", "手性碳验证码", null, clickToProxyActAction(Auth2Activity.class)));
         ll.addView(newListItemButton(this, "展望未来", "其实都还没写", null, clickToProxyActAction(PendingFuncActivity.class)));
         ll.addView(newListItemButton(this, "特别鸣谢", "感谢卖动绘制图标", null, clickToProxyActAction(LicenseActivity.class)));
         ll.addView(subtitle(this, "调试"));

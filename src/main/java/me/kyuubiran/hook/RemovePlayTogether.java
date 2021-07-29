@@ -14,7 +14,6 @@ import nil.nadph.qnotified.hook.BaseDelayableHook;
 import nil.nadph.qnotified.step.DexDeobfStep;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.DexKit;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 import me.singleneuron.util.QQVersion;
 
@@ -53,7 +52,6 @@ public class RemovePlayTogether extends BaseDelayableHook {
                 XposedHelpers.findAndHookMethod(load("afqa"), "d", new XC_MethodHook(43) {
                     @Override
                     protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                        if (LicenseStatus.sDisableCommonHooks) return;
                         if (!isEnabled()) return;
                         param.setResult(false);
                     }
@@ -66,7 +64,6 @@ public class RemovePlayTogether extends BaseDelayableHook {
                     XposedBridge.hookMethod(m, new XC_MethodHook() {
                         @Override
                         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                            if (LicenseStatus.sDisableCommonHooks) return;
                             if (!isEnabled()) return;
                             param.setResult(null);
                         }

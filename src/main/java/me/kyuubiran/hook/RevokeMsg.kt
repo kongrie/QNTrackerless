@@ -19,7 +19,6 @@ import nil.nadph.qnotified.step.DexDeobfStep
 import nil.nadph.qnotified.step.Step
 import nil.nadph.qnotified.util.DexKit
 import nil.nadph.qnotified.util.Initiator
-import nil.nadph.qnotified.util.LicenseStatus
 import nil.nadph.qnotified.util.Utils
 import java.lang.reflect.Method
 import java.lang.reflect.Modifier
@@ -64,7 +63,6 @@ object RevokeMsg : BaseDelayableHook() {
                 @Throws(Throwable::class)
                 override fun beforeHookedMethod(param: MethodHookParam) {
                     mQQMsgFacade = param.thisObject
-                    if (LicenseStatus.sDisableCommonHooks) return
                     if (!isEnabled) return
                     val list = param.args[0] as ArrayList<*>
                     param.result = null

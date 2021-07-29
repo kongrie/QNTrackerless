@@ -35,7 +35,6 @@ import nil.nadph.qnotified.config.ConfigManager;
 import nil.nadph.qnotified.step.DexDeobfStep;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.util.DexKit;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Initiator.*;
@@ -125,7 +124,6 @@ public class FlashPicHook extends BaseDelayableHook {
 
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.sDisableCommonHooks) return;
                     if (!cfg.getBooleanOrFalse(qn_flash_as_pic)) return;
                     Object viewHolder = param.args[1];
                     if (viewHolder == null) return;

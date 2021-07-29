@@ -12,7 +12,6 @@ import nil.nadph.qnotified.config.ConfigManager
 import nil.nadph.qnotified.hook.BaseDelayableHook
 import nil.nadph.qnotified.step.Step
 import nil.nadph.qnotified.util.Initiator
-import nil.nadph.qnotified.util.LicenseStatus
 import nil.nadph.qnotified.util.Utils
 import java.lang.reflect.Method
 
@@ -35,7 +34,6 @@ object CutMessage : BaseDelayableHook() {
                 if (m.name == "a" && argt.size == 1 && argt[0] != Msg::class.java) {
                     XposedBridge.hookMethod(m, object : XC_MethodHook() {
                         override fun beforeHookedMethod(param: MethodHookParam?) {
-                            if (LicenseStatus.sDisableCommonHooks) return
                             if (!isEnabled) return
                             val msgRecord = param?.args?.get(0)?: return
                             if (msgRecord::class.java.name!="com.tencent.imcore.message.QQMessageFacade${'$'}Message") return

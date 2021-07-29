@@ -44,8 +44,6 @@ import nil.nadph.qnotified.bridge.FriendChunk;
 import nil.nadph.qnotified.config.ConfigManager;
 import nil.nadph.qnotified.step.Step;
 import nil.nadph.qnotified.ui.ResUtils;
-import nil.nadph.qnotified.util.CliOper;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static android.widget.LinearLayout.LayoutParams.MATCH_PARENT;
@@ -68,11 +66,9 @@ public class DelDetectorHook extends BaseDelayableHook {
         @Override
         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
             try {
-                if (LicenseStatus.sDisableCommonHooks) return;
                 boolean hide = false;
                 try {
                     hide = ConfigManager.getDefaultConfig().getBooleanOrFalse("qn_hide_ex_entry_group");
-                    if (LicenseStatus.isSilentGone()) return;
                 } catch (Throwable e) {
                     log(e);
                 }
@@ -188,7 +184,6 @@ public class DelDetectorHook extends BaseDelayableHook {
                 exfriend.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (LicenseStatus.sDisableCommonHooks) return;
                         Intent intent = new Intent(splashActivity, ExfriendListActivity.class);
                         intent.putExtra(ACTIVITY_PROXY_ACTION, ACTION_EXFRIEND_LIST);
                         splashActivity.startActivity(intent);
@@ -240,21 +235,10 @@ public class DelDetectorHook extends BaseDelayableHook {
 
             @Override
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-
-                try {
-                    if (Utils.getLongAccountUin() > 10000) {
-                        ExfriendManager ex = ExfriendManager.getCurrent();
-                        ex.timeToUpdateFl();
-                    }
-                } catch (Throwable e) {
-                    log(e);
-                    throw e;
-                }
                 if (Utils.getBuildTimestamp() < 0 && (Math.random() < 0.25)) {
                     TroubleshootActivity.quitLooper();
                 } else {
                     if (z) return;
-                    CliOper.onLoad();
                     z = true;
                 }
             }

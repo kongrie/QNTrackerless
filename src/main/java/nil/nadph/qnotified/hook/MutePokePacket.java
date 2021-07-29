@@ -26,7 +26,6 @@ import de.robv.android.xposed.XposedHelpers;
 import nil.nadph.qnotified.SyncUtils;
 import nil.nadph.qnotified.config.ConfigManager;
 import nil.nadph.qnotified.step.Step;
-import nil.nadph.qnotified.util.LicenseStatus;
 import nil.nadph.qnotified.util.Utils;
 
 import static nil.nadph.qnotified.util.Initiator.load;
@@ -51,7 +50,7 @@ public class MutePokePacket extends BaseDelayableHook {
             XposedHelpers.findAndHookMethod(load("com.tencent.mobileqq.data.MessageForPoke"), "doParse", new XC_MethodHook(200) {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                    if (LicenseStatus.sDisableCommonHooks || !isEnabled()) return;
+                    if (!isEnabled()) return;
                     XposedHelpers.setObjectField(param.thisObject, "isPlayed", true);
                 }
             });
