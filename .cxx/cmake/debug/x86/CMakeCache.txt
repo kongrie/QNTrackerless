@@ -161,6 +161,9 @@ CMAKE_PROJECT_NAME:STATIC=natives
 //Ranlib
 CMAKE_RANLIB:FILEPATH=/home/fe3o4/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/bin/i686-linux-android-ranlib
 
+//No help, variable specified on the command line.
+CMAKE_RUNTIME_OUTPUT_DIRECTORY:UNINITIALIZED=/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/obj/x86
+
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
 

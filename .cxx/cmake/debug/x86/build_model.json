@@ -1,13 +1,17 @@
 {
   "abi": "X86",
-  "abiPlatformVersion": 21,
-  "buildSettings": {
-    "environmentVariables": []
+  "info": {
+    "abi": "X86",
+    "bitness": 32,
+    "deprecated": false,
+    "default": true
   },
+  "originalCxxBuildFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
+  "cxxBuildFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
+  "abiPlatformVersion": 21,
   "cmake": {
-    "cmakeArtifactsBaseFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
-    "cmakeServerLogFile": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86/cmake_server_log.txt",
     "cmakeWrappingBaseFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cxx/debug/x86",
+    "cmakeArtifactsBaseFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -60,6 +64,10 @@
           "value": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/obj/x86"
         },
         {
+          "name": "CMAKE_RUNTIME_OUTPUT_DIRECTORY",
+          "value": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/obj/x86"
+        },
+        {
           "name": "CMAKE_MAKE_PROGRAM",
           "value": "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja"
         },
@@ -72,44 +80,72 @@
           "value": "21"
         }
       ]
-    }
+    },
+    "cmakeServerLogFile": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86/cmake_server_log.txt"
   },
-  "cxxBuildFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
-  "info": {
-    "abi": "X86",
-    "bitness": 32,
-    "deprecated": false,
-    "default": true
-  },
-  "originalCxxBuildFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
   "variant": {
     "buildSystemArgumentList": [],
-    "buildTargetSet": [],
     "cFlagsList": [],
-    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
     "cppFlagsList": [],
+    "variantName": "debug",
+    "objFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/obj",
+    "soFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/lib",
     "isDebuggableEnabled": true,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": [],
+    "implicitBuildTargetSet": [],
+    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
     "module": {
-      "buildSystem": "CMAKE",
-      "cmake": {
-        "cmakeExe": "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/cmake",
-        "minimumCmakeVersion": "3.10.2",
-        "ninjaExe": "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja"
-      },
-      "cmakeToolchainFile": "/home/fe3o4/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake",
       "cxxFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx",
-      "gradleModulePathName": ":app",
+      "splitsAbiFilterSet": [],
       "intermediatesFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates",
-      "makeFile": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/src/main/jni/CMakeLists.txt",
-      "moduleBuildFile": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build.gradle",
+      "gradleModulePathName": ":app",
       "moduleRootFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app",
+      "moduleBuildFile": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build.gradle",
+      "makeFile": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/src/main/jni/CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "ndkFolder": "/home/fe3o4/Android/Sdk/ndk/21.3.6528147",
+      "ndkVersion": "21.3.6528147",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
       "ndkDefaultAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",
         "X86",
         "X86_64"
       ],
-      "ndkFolder": "/home/fe3o4/Android/Sdk/ndk/21.3.6528147",
+      "ndkDefaultStl": "LIBCXX_STATIC",
+      "ndkMetaPlatforms": {
+        "min": 16,
+        "max": 30,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29,
+          "R": 30
+        }
+      },
       "ndkMetaAbiList": [
         {
           "abi": "ARMEABI_V7A",
@@ -136,47 +172,15 @@
           "default": true
         }
       ],
-      "ndkMetaPlatforms": {
-        "min": 16,
-        "max": 30,
-        "aliases": {
-          "20": 19,
-          "25": 24,
-          "J": 16,
-          "J-MR1": 17,
-          "J-MR2": 18,
-          "K": 19,
-          "L": 21,
-          "L-MR1": 22,
-          "M": 23,
-          "N": 24,
-          "N-MR1": 24,
-          "O": 26,
-          "O-MR1": 27,
-          "P": 28,
-          "Q": 29,
-          "R": 30
-        }
+      "originalCmakeToolchainFile": "/home/fe3o4/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake",
+      "cmakeToolchainFile": "/home/fe3o4/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake",
+      "cmake": {
+        "isValidCmakeAvailable": true,
+        "cmakeExe": "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/cmake",
+        "minimumCmakeVersion": "3.10.2",
+        "ninjaExe": "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+        "isPreferCmakeFileApiEnabled": true
       },
-      "ndkSupportedAbiList": [
-        "ARMEABI_V7A",
-        "ARM64_V8A",
-        "X86",
-        "X86_64"
-      ],
-      "ndkDefaultStl": "LIBCXX_STATIC",
-      "ndkVersion": "21.3.6528147",
-      "project": {
-        "compilerSettingsCacheFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/.cxx",
-        "cxxFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/.cxx",
-        "isBuildOnlyTargetAbiEnabled": true,
-        "isCmakeBuildCohabitationEnabled": false,
-        "isNativeCompilerSettingsCacheEnabled": false,
-        "rootBuildGradleFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10",
-        "sdkFolder": "/home/fe3o4/Android/Sdk",
-        "isPrefabEnabled": false
-      },
-      "splitsAbiFilterSet": [],
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
           "ARMEABI_V7A": "/home/fe3o4/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so",
@@ -187,18 +191,24 @@
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
-      }
+      },
+      "project": {
+        "rootBuildGradleFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10",
+        "cxxFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/.cxx",
+        "compilerSettingsCacheFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/.cxx",
+        "sdkFolder": "/home/fe3o4/Android/Sdk",
+        "isNativeCompilerSettingsCacheEnabled": false,
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isPrefabEnabled": false,
+        "isV2NativeModelEnabled": true
+      },
+      "nativeBuildOutputLevel": "QUIET"
     },
-    "objFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/obj",
-    "variantName": "debug",
-    "validAbiList": [
-      "ARMEABI_V7A",
-      "ARM64_V8A",
-      "X86",
-      "X86_64"
-    ],
-    "prefabDirectory": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/prefab",
-    "prefabPackageDirectoryList": []
+    "prefabDirectory": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/prefab"
+  },
+  "buildSettings": {
+    "environmentVariables": []
   },
   "prefabFolder": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/prefab/x86"
 }

@@ -47,6 +47,7 @@ CMAKE SERVER: {
     "-DCMAKE_ANDROID_NDK\u003d/home/fe3o4/Android/Sdk/ndk/21.3.6528147",
     "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
     "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/obj/x86",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/obj/x86",
     "-DCMAKE_MAKE_PROGRAM\u003d/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
     "-DCMAKE_SYSTEM_NAME\u003dAndroid",
     "-DCMAKE_SYSTEM_VERSION\u003d21"

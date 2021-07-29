@@ -1,41 +1,38 @@
 {
-  "stringTable": {
-    "0": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
-    "1": "--target=i686-none-linux-android21 --gcc-toolchain=/home/fe3o4/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/fe3o4/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/sysroot -Dnatives_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC -std=gnu++14"
-  },
+  "stringTable": {},
   "buildFiles": [
-    "/home/fe3o4/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake",
-    "/home/fe3o4/Android/Sdk/ndk/21.3.6528147/build/cmake/platforms.cmake",
     "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/src/main/jni/CMakeLists.txt"
   ],
-  "cleanCommands": [
-    "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86\" clean"
+  "cleanCommandsComponents": [
+    [
+      "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+      "-C",
+      "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
+      "clean"
+    ]
   ],
-  "buildTargetsCommand": "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommandComponents": [
+    "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+    "-C",
+    "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
   "libraries": {
     "natives-Debug-x86": {
-      "buildCommand": "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86\" natives",
+      "buildCommandComponents": [
+        "/home/fe3o4/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+        "-C",
+        "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
+        "natives"
+      ],
       "buildType": "debug",
-      "toolchain": "2622052873",
       "abi": "x86",
       "artifactName": "natives",
-      "files": [
-        {
-          "src": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/src/main/jni/Natives.cpp",
-          "flagsOrdinal": 1,
-          "workingDirectoryOrdinal": 0
-        }
-      ],
-      "headers": [],
       "output": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/build/intermediates/cmake/debug/obj/x86/libnatives.so",
       "runtimeFiles": []
     }
   },
-  "toolchains": {
-    "2622052873": {
-      "cppCompilerExecutable": "/home/fe3o4/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
-    }
-  },
+  "toolchains": {},
   "cFileExtensions": [],
   "cppFileExtensions": [
     "cpp"
