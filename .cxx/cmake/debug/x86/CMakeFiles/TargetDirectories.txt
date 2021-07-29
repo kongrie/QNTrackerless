@@ -1,0 +1,3 @@
+/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
+/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86/CMakeFiles/natives.dir
