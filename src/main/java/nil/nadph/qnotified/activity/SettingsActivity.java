@@ -275,8 +275,6 @@ public class SettingsActivity extends IphoneTitleBarActivityCompat implements Vi
         UpdateCheck uc = new UpdateCheck();
         ll.addView(_t = newListItemButton(this, "检查更新", null, "点击检查", uc));
         uc.setVersionTip(_t);
-        ll.addView(newListItemButton(this, "展望未来", "其实都还没写", null, clickToProxyActAction(PendingFuncActivity.class)));
-        ll.addView(newListItemButton(this, "特别鸣谢", "感谢卖动绘制图标", null, clickToProxyActAction(LicenseActivity.class)));
         ll.addView(subtitle(this, "调试"));
         ll.addView(newListItemButton(this, "故障排查", null, null, clickToProxyActAction(ACTION_TROUBLESHOOT_ACTIVITY)));
         ll.addView(newListItemButton(this, "Shell.exec", "正常情况下无需使用此功能", null, clickTheComing()));
