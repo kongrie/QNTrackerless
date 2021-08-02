@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/.cxx/cmake/debug/x86",
-  "command": "/home/fe3o4/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/fe3o4/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/fe3o4/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Dnatives_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -std=gnu++14 -o CMakeFiles/natives.dir/Natives.cpp.o -c /home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/src/main/jni/Natives.cpp",
-  "file": "/home/fe3o4/AndroidStudioProjects/QNotified-0.8.10/app/src/main/jni/Natives.cpp"
-}
-]
