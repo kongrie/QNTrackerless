@@ -1,4 +1,4 @@
-# QNotifiedTrackerless
+# QNTrackerless
 
 ## 本模块是基于 QNotified 0.8.10 的开源二次修改
 
