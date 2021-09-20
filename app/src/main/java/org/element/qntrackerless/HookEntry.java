@@ -20,10 +20,8 @@ package org.element.qntrackerless;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodReplacement;
-import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
-import nil.nadph.qnotified.R;
 import nil.nadph.qnotified.StartupHook;
 import nil.nadph.qnotified.util.Utils;
 
@@ -34,10 +32,6 @@ public class HookEntry implements IXposedHookLoadPackage {
 
     @Override
     public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
-        if (R.string.res_inject_success >>> 24 == 0x7f) {
-            XposedBridge.log("package id must NOT be 0x7f, reject loading...");
-            return;
-        }
         switch (lpparam.packageName) {
             case PACKAGE_NAME_SELF:
                 XposedHelpers.findAndHookMethod("nil.nadph.qnotified.util.Utils", lpparam.classLoader, "getActiveModuleVersion", XC_MethodReplacement.returnConstant(Utils.QN_VERSION_NAME));
