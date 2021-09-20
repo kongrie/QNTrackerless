@@ -33,7 +33,6 @@ public class HookEntry implements IXposedHookLoadPackage {
     public static final String PACKAGE_NAME_QQ_LITE = "com.tencent.qqlite";
     public static final String PACKAGE_NAME_TIM = "com.tencent.tim";
     public static final String PACKAGE_NAME_SELF = "org.element.qntrackerless";
-    public static final String PACKAGE_NAME_XPOSED_INSTALLER = "de.robv.android.xposed.installer";
 
     @Override
     public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
