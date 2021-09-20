@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatTransferActivity implements ViewPager
         setTheme(R.style.AppTheme_Def);
         super.onCreate(savedInstanceState);
         setTheme(ThemeUtils.getStyleId(this));
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_qp);
         initTabLayout();
         initToolbar();
 //        boolean z = hasAppCompatAttr(this);
