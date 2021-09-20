@@ -114,8 +114,8 @@ public class ChatTailHook extends BaseDelayableHook {
                             // debug.append("当前小尾巴: ").append(ct.getTailCapacity().replace("\n", "\\n")).append("\n");
                             // debug.append("当前uin: ").append(uin).append("\n");
 
-                            logi("isRegex:" + String.valueOf(ChatTailHook.isRegex()));
-                            logi("isPassRegex:" + String.valueOf(ChatTailHook.isPassRegex(msg)));
+                            logi("isRegex:" + ChatTailHook.isRegex());
+                            logi("isPassRegex:" + ChatTailHook.isPassRegex(msg));
                             logi("getTailRegex:" + ChatTailHook.getTailRegex());
                             // debug.append("群列表: ").append(muted).append("\n");
                             if ((ct.isGlobal() || ct.containsTroop(uin) || ct.containsFriend(uin))

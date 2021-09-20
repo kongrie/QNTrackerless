@@ -189,7 +189,7 @@ public class UpdateCheck implements View.OnClickListener, Runnable {
             //main.addView(list, WRAP_CONTENT, WRAP_CONTENT);
             //list.setAutoLinkMask(Linkify.WEB_URLS);
 
-            PHPArray ver = (PHPArray) result;
+            PHPArray ver = result;
             String vn = (String) ver.__("short_version")._$();
             int vc = Integer.parseInt((String) ver.__("version")._$());
             String desc = "" + ver.__("release_notes")._$();
@@ -215,8 +215,8 @@ public class UpdateCheck implements View.OnClickListener, Runnable {
             sb.append("\nmd5:").append(md5).append("\n");
             sb.append(desc);
             sb.append("\n下载地址:\n");
-            tmp = new SpannableString((String) download_url);
-            tmp.setSpan(new URLSpan((String) download_url), 0, tmp.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            tmp = new SpannableString(download_url);
+            tmp.setSpan(new URLSpan(download_url), 0, tmp.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             sb.append(tmp);
             sb.append("\n");
             sb.append("\n");

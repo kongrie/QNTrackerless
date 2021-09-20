@@ -80,7 +80,7 @@ public class InjectDelayableHooks {
                 }
             }
             final ArrayList<Step> steps = new ArrayList<>(todos);
-            Collections.sort(steps, Collections.<Step>reverseOrder());
+            Collections.sort(steps, Collections.reverseOrder());
             for (int idx = 0; idx < steps.size(); idx++) {
                 final int j = idx;
                 if (SyncUtils.isMainProcess() && ctx != null)

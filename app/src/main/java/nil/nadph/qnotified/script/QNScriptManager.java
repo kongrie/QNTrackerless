@@ -17,7 +17,7 @@ import static nil.nadph.qnotified.util.Utils.*;
 
 public class QNScriptManager {
 
-    private static List<QNScript> scripts = new ArrayList<>();
+    private static final List<QNScript> scripts = new ArrayList<>();
     public static int enables = 0;
     public static boolean enableall = false;
     public static String scriptsPath;

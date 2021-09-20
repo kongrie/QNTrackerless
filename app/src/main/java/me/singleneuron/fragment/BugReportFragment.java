@@ -22,7 +22,7 @@ import nil.nadph.qnotified.util.Utils;
 
 public class BugReportFragment extends PreferenceFragmentCompat {
 
-    private Map<String,String> arguments = new HashMap<>();
+    private final Map<String,String> arguments = new HashMap<>();
     private ArrayList<BugReportArguments> bugReportArgumentsList;
 
     private BugReportFragment() {}

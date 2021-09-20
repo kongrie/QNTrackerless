@@ -18,7 +18,7 @@ public class QNScript {
     private final String code;
     private final QNScriptInfo info;
     private boolean enable;
-    private boolean init = false;
+    private final boolean init = false;
 
     public QNScript(Interpreter lp, String code) {
         this.instance = lp;

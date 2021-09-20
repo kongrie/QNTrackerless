@@ -395,7 +395,7 @@ public class SettingsActivity extends IphoneTitleBarActivityCompat implements Vi
     private boolean isVisible = false;
     private boolean rgbEnabled = false;
     private TextView mRikkaTitle, mRikkaDesc;
-    private Looper mainLooper = Looper.getMainLooper();
+    private final Looper mainLooper = Looper.getMainLooper();
 
 
     /**

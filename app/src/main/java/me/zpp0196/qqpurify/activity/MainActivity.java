@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatTransferActivity implements ViewPager
     private TextView mTitleTextView;
 
     public List<TabFragment> mRefreshedFragment = new ArrayList<>();
-    private List<TabFragment> mFragments = new ArrayList<>();
+    private final List<TabFragment> mFragments = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatTransferActivity implements ViewPager
 
     public static class MainAdapter extends FragmentPagerAdapter {
 
-        private List<TabFragment> mFragmentList;
+        private final List<TabFragment> mFragmentList;
 
         MainAdapter(@NonNull FragmentManager fm, List<TabFragment> fragmentList) {
             super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);

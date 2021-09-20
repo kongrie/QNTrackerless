@@ -42,7 +42,7 @@ public class ThemeUtils {
 
     private static final Themes THEME_DEFAULT = Themes.FTB;
     private static Themes mTheme = THEME_DEFAULT;
-    private static String mThemeTitle = "theme_title";
+    private static final String mThemeTitle = "theme_title";
 
     public static void setColor(Activity activity, int color) {
         ThemeUtils.mTheme = color2Theme(activity, color);

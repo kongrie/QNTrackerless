@@ -55,7 +55,7 @@ public class OneTapTwentyLikes extends BaseDelayableHook {
                             Object likeClickListener = Utils.iget_object_or_null(param.thisObject, "a", Initiator._VoteHelper());
                             Method onClick = likeClickListener.getClass().getDeclaredMethod("a", tag.getClass(), ImageView.class);
                             for (int i = 0; i < 20; i++) {
-                                onClick.invoke(likeClickListener, tag, (ImageView) view);
+                                onClick.invoke(likeClickListener, tag, view);
                             }
                         }
                     });

@@ -85,61 +85,61 @@ dependencies {
 }
 
 def _execDexTail = { String dexPath ->
-    URLClassLoader cl = new URLClassLoader(new File(rootProject.projectDir, "app" + File.separator + "utils" + File.separator + "tail.jar").toURL());
-    byte[] time = cl.loadClass("cc.ioctl.dextail.HexUtils").getMethod("getTimeAsByteArray").invoke(null) as byte[];
-    PrintStream stdout = System.out;
+    URLClassLoader cl = new URLClassLoader(new File(rootProject.projectDir, "app" + File.separator + "utils" + File.separator + "tail.jar").toURL())
+    byte[] time = cl.loadClass("cc.ioctl.dextail.HexUtils").getMethod("getTimeAsByteArray").invoke(null) as byte[]
+    PrintStream stdout = System.out
     boolean result = cl.loadClass("cc.ioctl.dextail.Main").getMethod("checkAndUpdateTail", String.class, byte[].class, boolean.class, PrintStream.class)
-            .invoke(null, dexPath, time, true, stdout);
-    return result;
+            .invoke(null, dexPath, time, true, stdout)
+    return result
 }
 
 task dexTailDebug {
     doLast {
-        println("dexTailDebug.doLast invoked");
-        ArrayList<File> pathList = new ArrayList<>();
+        println("dexTailDebug.doLast invoked")
+        ArrayList<File> pathList = new ArrayList<>()
         //3.6.x, plain
-        String tmp_path = "intermediates/dex/debug/out/classes.dex";
+        String tmp_path = "intermediates/dex/debug/out/classes.dex"
         if (!"/".equals(File.separator)) {
-            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar);
+            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar)
         }
-        File tmp_f = new File(project.buildDir, tmp_path);
+        File tmp_f = new File(project.buildDir, tmp_path)
         if (tmp_f.exists()) {
-            pathList.add(tmp_f);
+            pathList.add(tmp_f)
         }
         //3.6.x, minify
-        tmp_path = "intermediates/dex/debug/shrunkDex/classes.dex";
+        tmp_path = "intermediates/dex/debug/shrunkDex/classes.dex"
         if (!"/".equals(File.separator)) {
-            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar);
+            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar)
         }
-        tmp_f = new File(project.buildDir, tmp_path);
+        tmp_f = new File(project.buildDir, tmp_path)
         if (tmp_f.exists()) {
-            pathList.add(tmp_f);
+            pathList.add(tmp_f)
         }
         //4.0.x single
-        tmp_path = "intermediates/dex/debug/mergeDexDebug/classes.dex";
+        tmp_path = "intermediates/dex/debug/mergeDexDebug/classes.dex"
         if (!"/".equals(File.separator)) {
-            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar);
+            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar)
         }
-        tmp_f = new File(project.buildDir, tmp_path);
+        tmp_f = new File(project.buildDir, tmp_path)
         if (tmp_f.exists()) {
-            pathList.add(tmp_f);
+            pathList.add(tmp_f)
         }
         //4.0.x minify
-        tmp_path = "intermediates/dex/debug/minifyDebugWithR8/classes.dex";
+        tmp_path = "intermediates/dex/debug/minifyDebugWithR8/classes.dex"
         if (!"/".equals(File.separator)) {
-            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar);
+            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar)
         }
-        tmp_f = new File(project.buildDir, tmp_path);
+        tmp_f = new File(project.buildDir, tmp_path)
         if (tmp_f.exists()) {
-            pathList.add(tmp_f);
+            pathList.add(tmp_f)
         }
         //end
         if (pathList.size() == 0) {
-            throw new RuntimeException("dex not found: we only support 3.6.x, 4.0.x and 4.1.x");
+            throw new RuntimeException("dex not found: we only support 3.6.x, 4.0.x and 4.1.x")
         }
         for (File f : pathList) {
             if (!_execDexTail(f.getAbsolutePath())) {
-                throw new RuntimeException("DedxTail returned false");
+                throw new RuntimeException("DedxTail returned false")
             }
         }
     }
@@ -148,50 +148,50 @@ task dexTailDebug {
 task dexTailRelease {
     doLast {
         println("dexTailRelease.doLast invoked")
-        ArrayList<File> pathList = new ArrayList<>();
+        ArrayList<File> pathList = new ArrayList<>()
         //3.6.x single?
-        String tmp_path = "intermediates/dex/release/out/classes.dex";
+        String tmp_path = "intermediates/dex/release/out/classes.dex"
         if (!"/".equals(File.separator)) {
-            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar);
+            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar)
         }
-        File tmp_f = new File(project.buildDir, tmp_path);
+        File tmp_f = new File(project.buildDir, tmp_path)
         if (tmp_f.exists()) {
-            pathList.add(tmp_f);
+            pathList.add(tmp_f)
         }
         //3.6.x, minify
-        tmp_path = "intermediates/dex/release/shrunkDex/classes.dex";
+        tmp_path = "intermediates/dex/release/shrunkDex/classes.dex"
         if (!"/".equals(File.separator)) {
-            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar);
+            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar)
         }
-        tmp_f = new File(project.buildDir, tmp_path);
+        tmp_f = new File(project.buildDir, tmp_path)
         if (tmp_f.exists()) {
-            pathList.add(tmp_f);
+            pathList.add(tmp_f)
         }
         //4.0.x single
-        tmp_path = "intermediates/dex/release/mergeDexRelease/classes.dex";
+        tmp_path = "intermediates/dex/release/mergeDexRelease/classes.dex"
         if (!"/".equals(File.separator)) {
-            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar);
+            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar)
         }
-        tmp_f = new File(project.buildDir, tmp_path);
+        tmp_f = new File(project.buildDir, tmp_path)
         if (tmp_f.exists()) {
-            pathList.add(tmp_f);
+            pathList.add(tmp_f)
         }
         //4.0.x minify
-        tmp_path = "intermediates/dex/release/minifyReleaseWithR8/classes.dex";
+        tmp_path = "intermediates/dex/release/minifyReleaseWithR8/classes.dex"
         if (!"/".equals(File.separator)) {
-            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar);
+            tmp_path = tmp_path.replace('/'.charAt(0), File.separatorChar)
         }
-        tmp_f = new File(project.buildDir, tmp_path);
+        tmp_f = new File(project.buildDir, tmp_path)
         if (tmp_f.exists()) {
-            pathList.add(tmp_f);
+            pathList.add(tmp_f)
         }
         //end
         if (pathList.size() == 0) {
-            throw new RuntimeException("dex not found: we only support 3.6.x, 4.0.x and 4.1.x");
+            throw new RuntimeException("dex not found: we only support 3.6.x, 4.0.x and 4.1.x")
         }
         for (File f : pathList) {
             if (!_execDexTail(f.getAbsolutePath())) {
-                throw new RuntimeException("DedxTail returned false");
+                throw new RuntimeException("DedxTail returned false")
             }
         }
     }

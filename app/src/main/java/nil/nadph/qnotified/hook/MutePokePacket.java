@@ -34,7 +34,7 @@ import static nil.nadph.qnotified.util.Utils.*;
 public class MutePokePacket extends BaseDelayableHook {
     private static final MutePokePacket self = new MutePokePacket();
     private boolean inited = false;
-    private String qn_mute_poke = "qn_mute_poke";
+    private final String qn_mute_poke = "qn_mute_poke";
 
     private MutePokePacket() {
     }

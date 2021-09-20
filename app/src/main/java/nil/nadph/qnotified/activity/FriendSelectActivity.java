@@ -223,14 +223,14 @@ public class FriendSelectActivity extends IphoneTitleBarActivityCompat implement
 
     public long getItemId(int position) {
         FriendInfo info = getItem(position);
-        return info == null ? -1 : Long.parseLong(info.uin.toString());
+        return info == null ? -1 : Long.parseLong(info.uin);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) convertView = createItemView();
         FriendInfo info = mFriendList.get(position);
         convertView.setTag(info.uin + "");
-        String nick = Utils.isNullOrEmpty(info.remark) ? info.nick : info.remark;;
+        String nick = Utils.isNullOrEmpty(info.remark) ? info.nick : info.remark;
         if (searchMode) {
             TextView title = convertView.findViewById(R_ID_TRP_TITLE);
             title.setText(nick);

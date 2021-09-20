@@ -69,7 +69,7 @@ public class ChatTailActivity extends IphoneTitleBarActivityCompat implements Vi
 
     TextView tvStatus;
 
-    private boolean mMsfResponsive = false;
+    private final boolean mMsfResponsive = false;
     private TextView __tv_chat_tail_groups, __tv_chat_tail_friends, __tv_chat_tail_time_format;
 
     public static int getBattery() {
@@ -245,7 +245,7 @@ public class ChatTailActivity extends IphoneTitleBarActivityCompat implements Vi
         boolean enabled = ct.isEnabled();
         String desc = "当前状态: ";
         if (enabled) {
-            if (!ct.isRegex() || !ct.isPassRegex("示例消息"))
+            if (!ChatTailHook.isRegex() || !ChatTailHook.isPassRegex("示例消息"))
                 desc += "已开启: \n" + ct.getTailCapacity()
                         .replace(ChatTailActivity.delimiter, "示例消息")
                         .replace("#model#", Build.MODEL)
@@ -281,8 +281,8 @@ public class ChatTailActivity extends IphoneTitleBarActivityCompat implements Vi
             case R_ID_APPLY:
                 //if (mMsfResponsive) {
                 doUpdateTailCfg();
-                logi("isRegex:" + String.valueOf(ChatTailHook.isRegex()));
-                logi("isPassRegex:" + String.valueOf(ChatTailHook.isPassRegex("示例消息")));
+                logi("isRegex:" + ChatTailHook.isRegex());
+                logi("isPassRegex:" + ChatTailHook.isPassRegex("示例消息"));
                 logi("getTailRegex:" + ChatTailHook.getTailRegex());
                /* } else {
                     final Dialog waitDialog = CustomDialog.create(this).setCancelable(true).setTitle("请稍候")
@@ -349,7 +349,7 @@ public class ChatTailActivity extends IphoneTitleBarActivityCompat implements Vi
         ct.setTail(val);
         val = ((EditText) ChatTailActivity.this.findViewById(R_ID_REGEX_VALUE)).getText().toString();
         if (!Utils.isNullOrEmpty(val)) {
-            ct.setTailRegex(val);
+            ChatTailHook.setTailRegex(val);
         }
         if (!ct.isEnabled()) {
             cfg.putBoolean(ChatTailHook.qn_chat_tail_enable, true);
