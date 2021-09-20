@@ -72,7 +72,6 @@ public class SettingEntryHook extends BaseDelayableHook {
                         item.setId(R_ID_SETTING_ENTRY);
                         invoke_virtual(item, "setLeftText", "QNotified", CharSequence.class);
                         invoke_virtual(item, "setBgType", 2, int.class);
-                        invoke_virtual(item, "setRightText", Utils.QN_VERSION_NAME, CharSequence.class);
                         item.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
