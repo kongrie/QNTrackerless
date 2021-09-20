@@ -16,13 +16,15 @@
  * along with this software.  If not, see
  * <https://www.gnu.org/licenses/>.
  */
-package nil.nadph.qnotified;
+package org.element.qntrackerless;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodReplacement;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
+import nil.nadph.qnotified.R;
+import nil.nadph.qnotified.StartupHook;
 import nil.nadph.qnotified.util.Utils;
 
 public class HookEntry implements IXposedHookLoadPackage {
@@ -30,7 +32,7 @@ public class HookEntry implements IXposedHookLoadPackage {
     public static final String PACKAGE_NAME_QQ_INTERNATIONAL = "com.tencent.mobileqqi";
     public static final String PACKAGE_NAME_QQ_LITE = "com.tencent.qqlite";
     public static final String PACKAGE_NAME_TIM = "com.tencent.tim";
-    public static final String PACKAGE_NAME_SELF = "nil.nadph.qnotified";
+    public static final String PACKAGE_NAME_SELF = "org.element.qntrackerless";
     public static final String PACKAGE_NAME_XPOSED_INSTALLER = "de.robv.android.xposed.installer";
 
     @Override

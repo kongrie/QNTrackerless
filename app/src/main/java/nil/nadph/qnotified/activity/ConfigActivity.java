@@ -37,7 +37,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 import me.singleneuron.util.HookStatue;
-import nil.nadph.qnotified.HookEntry;
+import org.element.qntrackerless.HookEntry;
 import nil.nadph.qnotified.MainHook;
 import nil.nadph.qnotified.R;
 import nil.nadph.qnotified.util.Natives;
@@ -142,7 +142,7 @@ public class ConfigActivity extends Activity implements Runnable {
         if (start.equals("nil.nadph.qnotified.HookLoader")) {
             vtv.setText("动态加载");
             vtv.setTextColor(Color.BLUE);
-        } else if (start.equals("nil.nadph.qnotified.HookEntry")) {
+        } else if (start.equals("org.element.qntrackerless.HookEntry")) {
             vtv.setText("静态");
             //vtv.setTextColor(Color.BLUE);
         } else {
