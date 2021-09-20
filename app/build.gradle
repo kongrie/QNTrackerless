@@ -7,7 +7,7 @@ android {
     ndkVersion '23.0.7599858'
     
     defaultConfig {
-        applicationId "nil.nadph.qnotified"
+        applicationId 'org.element.qntrackerless'
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 41
