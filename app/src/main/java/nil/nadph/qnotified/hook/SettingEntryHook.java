@@ -57,8 +57,8 @@ public class SettingEntryHook extends BaseDelayableHook {
                 @Override
                 protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
                     try {
-                        Class<?> itemClass = null;
-                        View itemRef = null;
+                        Class<?> itemClass;
+                        View itemRef;
                         itemRef = (View) Utils.iget_object_or_null(param.thisObject, "a", load("com/tencent/mobileqq/widget/FormSimpleItem"));
                         if (itemRef == null && (itemClass = load("com/tencent/mobileqq/widget/FormCommonSingleLineItem")) != null)
                             itemRef = (View) Utils.iget_object_or_null(param.thisObject, "a", itemClass);
@@ -68,16 +68,12 @@ public class SettingEntryHook extends BaseDelayableHook {
                                 clz = load("com/tencent/mobileqq/widget/FormSimpleItem");
                             itemRef = (View) Utils.getFirstNSFByType(param.thisObject, clz);
                         }
+                        assert itemRef != null;
                         View item = (View) new_instance(itemRef.getClass(), param.thisObject, Context.class);
                         item.setId(R_ID_SETTING_ENTRY);
                         invoke_virtual(item, "setLeftText", "QNotified", CharSequence.class);
                         invoke_virtual(item, "setBgType", 2, int.class);
-                        item.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                MainHook.startProxyActivity((Context) param.thisObject, ActProxyMgr.ACTION_ADV_SETTINGS);
-                            }
-                        });
+                        item.setOnClickListener(v -> MainHook.startProxyActivity((Context) param.thisObject, ActProxyMgr.ACTION_ADV_SETTINGS));
                         ViewGroup list = (ViewGroup) itemRef.getParent();
                         ViewGroup.LayoutParams reflp;
                         if (list.getChildCount() == 1) {
