@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
-    ndkVersion "21.3.6528147"
+    ndkVersion '23.0.7599858'
     
     defaultConfig {
         applicationId "nil.nadph.qnotified"
@@ -36,9 +36,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    aaptOptions {
-        additionalParameters '--allow-reserved-package-id', '--package-id', '0x75'
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -55,6 +52,9 @@ android {
 
     buildFeatures {
         viewBinding true
+    }
+    androidResources {
+        additionalParameters '--allow-reserved-package-id', '--package-id', '0x75'
     }
 }
 
